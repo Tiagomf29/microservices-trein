@@ -1,0 +1,133 @@
+2023-04-22 00:08:29 [restartedMain] INFO  mspessoas.MsPessoasApplication - Starting MsPessoasApplication using Java 17.0.6 with PID 13772 (C:\Users\tiago_1ctyr50\Documents\workspace-spring-tool-suite-4-4.17.0.RELEASE\ms-person\target\classes started by tiago_1ctyr50 in C:\Users\tiago_1ctyr50\Documents\workspace-spring-tool-suite-4-4.17.0.RELEASE\ms-person)
+2023-04-22 00:08:29 [restartedMain] INFO  mspessoas.MsPessoasApplication - The following 1 profile is active: "dev"
+2023-04-22 00:08:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-22 00:08:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-22 00:08:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-22 00:08:30 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interfaces.
+2023-04-22 00:08:30 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-04-22 00:08:30 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-04-22 00:08:30 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-04-22 00:08:30 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-04-22 00:08:30 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1298 ms
+2023-04-22 00:08:30 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-04-22 00:08:31 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@62e1c72e
+2023-04-22 00:08:31 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-04-22 00:08:31 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/msperson-dev?createDatabaseIfNotExist=true&serverTimeZone=UTC'
+2023-04-22 00:08:31 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.5.1 by Redgate
+2023-04-22 00:08:31 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-04-22 00:08:31 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - 
+2023-04-22 00:08:31 [restartedMain] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:mysql://localhost:3306/msperson-dev (MySQL 8.0)
+2023-04-22 00:08:31 [restartedMain] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.028s)
+2023-04-22 00:08:31 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `msperson-dev`: 1
+2023-04-22 00:08:31 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Schema `msperson-dev` is up to date. No migration necessary.
+2023-04-22 00:08:31 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-22 00:08:31 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-22 00:08:31 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-04-22 00:08:32 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-22 00:08:32 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-22 00:08:32 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-22 00:08:33 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3112f2a1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@310aa1fc, org.springframework.security.web.context.SecurityContextHolderFilter@4e5ff26b, org.springframework.security.web.header.HeaderWriterFilter@789da7f5, org.springframework.security.web.authentication.logout.LogoutFilter@10cc8d64, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3f7b7d7e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@732c6e06, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c6c4be7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29048d05, org.springframework.security.web.session.SessionManagementFilter@12dafb4c, org.springframework.security.web.access.ExceptionTranslationFilter@19a0808a, org.springframework.security.web.access.intercept.AuthorizationFilter@2a755db2]
+2023-04-22 00:08:33 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-04-22 00:08:33 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-22 00:08:33 [restartedMain] INFO  mspessoas.MsPessoasApplication - Started MsPessoasApplication in 4.145 seconds (process running for 4.882)
+2023-04-22 00:09:46 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-04-22 00:09:46 [RMI TCP Connection(11)-127.0.0.1] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-04-22 00:09:46 [RMI TCP Connection(11)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-22 00:09:46 [RMI TCP Connection(11)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-04-22 00:09:46 [RMI TCP Connection(11)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-04-22 09:18:15 [restartedMain] INFO  mspessoas.MsPessoasApplication - Starting MsPessoasApplication using Java 17.0.6 with PID 4408 (C:\Users\tiago_1ctyr50\Documents\workspace-spring-tool-suite-4-4.17.0.RELEASE\ms-person\target\classes started by tiago_1ctyr50 in C:\Users\tiago_1ctyr50\Documents\workspace-spring-tool-suite-4-4.17.0.RELEASE\ms-person)
+2023-04-22 09:18:15 [restartedMain] INFO  mspessoas.MsPessoasApplication - The following 1 profile is active: "dev"
+2023-04-22 09:18:15 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-22 09:18:15 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-22 09:18:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-22 09:18:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 104 ms. Found 1 JPA repository interfaces.
+2023-04-22 09:18:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-04-22 09:18:18 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-04-22 09:18:18 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-04-22 09:18:18 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-04-22 09:18:18 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2975 ms
+2023-04-22 09:18:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-04-22 09:18:18 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e4312b8
+2023-04-22 09:18:18 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-04-22 09:18:18 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/msperson-dev?createDatabaseIfNotExist=true&serverTimeZone=UTC'
+2023-04-22 09:18:18 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.5.1 by Redgate
+2023-04-22 09:18:18 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-04-22 09:18:18 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - 
+2023-04-22 09:18:19 [restartedMain] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:mysql://localhost:3306/msperson-dev (MySQL 8.0)
+2023-04-22 09:18:19 [restartedMain] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.025s)
+2023-04-22 09:18:19 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `msperson-dev`: 1
+2023-04-22 09:18:19 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Schema `msperson-dev` is up to date. No migration necessary.
+2023-04-22 09:18:19 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-22 09:18:19 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-22 09:18:19 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-04-22 09:18:20 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-22 09:18:20 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-22 09:18:38 [restartedMain] INFO  mspessoas.MsPessoasApplication - Starting MsPessoasApplication using Java 17.0.6 with PID 17972 (C:\Users\tiago_1ctyr50\Documents\workspace-spring-tool-suite-4-4.17.0.RELEASE\ms-person\target\classes started by tiago_1ctyr50 in C:\Users\tiago_1ctyr50\Documents\workspace-spring-tool-suite-4-4.17.0.RELEASE\ms-person)
+2023-04-22 09:18:38 [restartedMain] INFO  mspessoas.MsPessoasApplication - The following 1 profile is active: "dev"
+2023-04-22 09:18:38 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-22 09:18:38 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-22 09:18:39 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-22 09:18:39 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 63 ms. Found 1 JPA repository interfaces.
+2023-04-22 09:18:40 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-04-22 09:18:40 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-04-22 09:18:40 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-04-22 09:18:40 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-04-22 09:18:40 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1784 ms
+2023-04-22 09:18:40 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-04-22 09:18:40 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d6b634e
+2023-04-22 09:18:40 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-04-22 09:18:40 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/msperson-dev?createDatabaseIfNotExist=true&serverTimeZone=UTC'
+2023-04-22 09:18:41 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.5.1 by Redgate
+2023-04-22 09:18:41 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-04-22 09:18:41 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - 
+2023-04-22 09:18:41 [restartedMain] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:mysql://localhost:3306/msperson-dev (MySQL 8.0)
+2023-04-22 09:18:41 [restartedMain] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.044s)
+2023-04-22 09:18:41 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `msperson-dev`: 1
+2023-04-22 09:18:41 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Schema `msperson-dev` is up to date. No migration necessary.
+2023-04-22 09:18:41 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-22 09:18:41 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-22 09:18:41 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-04-22 09:18:42 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-22 09:18:42 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-22 09:18:43 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-22 09:18:43 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1014373f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@21430d66, org.springframework.security.web.context.SecurityContextHolderFilter@5a5ad33a, org.springframework.security.web.header.HeaderWriterFilter@570eb44f, org.springframework.security.web.authentication.logout.LogoutFilter@4ae61d0b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@355dd373, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a3d792f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1b29dee3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7da96892, org.springframework.security.web.session.SessionManagementFilter@568a50c1, org.springframework.security.web.access.ExceptionTranslationFilter@112debdb, org.springframework.security.web.access.intercept.AuthorizationFilter@22d26695]
+2023-04-22 09:18:43 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-04-22 09:18:43 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-22 09:18:43 [restartedMain] INFO  mspessoas.MsPessoasApplication - Started MsPessoasApplication in 5.717 seconds (process running for 6.683)
+2023-04-22 09:19:21 [RMI TCP Connection(10)-127.0.0.1] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2023-04-22 09:19:21 [RMI TCP Connection(10)-127.0.0.1] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-04-22 09:19:21 [RMI TCP Connection(10)-127.0.0.1] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-22 09:19:21 [RMI TCP Connection(10)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-04-22 09:19:21 [RMI TCP Connection(10)-127.0.0.1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-04-22 14:43:04 [restartedMain] INFO  mspessoas.MsPessoasApplication - Starting MsPessoasApplication using Java 17.0.6 with PID 8184 (C:\Users\tiago_1ctyr50\Documents\workspace-spring-tool-suite-4-4.17.0.RELEASE\ms-person\target\classes started by tiago_1ctyr50 in C:\Users\tiago_1ctyr50\Documents\workspace-spring-tool-suite-4-4.17.0.RELEASE\ms-person)
+2023-04-22 14:43:04 [restartedMain] INFO  mspessoas.MsPessoasApplication - The following 1 profile is active: "dev"
+2023-04-22 14:43:04 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-22 14:43:04 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-22 14:43:05 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-22 14:43:05 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 1 JPA repository interfaces.
+2023-04-22 14:43:05 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-04-22 14:43:05 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-04-22 14:43:05 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-04-22 14:43:05 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-04-22 14:43:05 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1666 ms
+2023-04-22 14:43:05 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-04-22 14:43:07 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ad540be
+2023-04-22 14:43:07 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-04-22 14:43:07 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/msperson-dev?createDatabaseIfNotExist=true&serverTimeZone=UTC'
+2023-04-22 14:43:08 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - Flyway Community Edition 9.5.1 by Redgate
+2023-04-22 14:43:08 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#9.5.1
+2023-04-22 14:43:08 [restartedMain] INFO  o.f.c.i.license.VersionPrinter - 
+2023-04-22 14:43:08 [restartedMain] INFO  o.f.c.i.d.base.BaseDatabaseType - Database: jdbc:mysql://localhost:3306/msperson-dev (MySQL 8.0)
+2023-04-22 14:43:08 [restartedMain] INFO  o.f.core.internal.command.DbValidate - Successfully validated 1 migration (execution time 00:00.052s)
+2023-04-22 14:43:08 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Current version of schema `msperson-dev`: 1
+2023-04-22 14:43:08 [restartedMain] INFO  o.f.core.internal.command.DbMigrate - Schema `msperson-dev` is up to date. No migration necessary.
+2023-04-22 14:43:08 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-22 14:43:08 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-22 14:43:09 [restartedMain] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-04-22 14:43:09 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-22 14:43:09 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-22 14:43:10 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-22 14:43:10 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@73495ce2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@303acc79, org.springframework.security.web.context.SecurityContextHolderFilter@206e244a, org.springframework.security.web.header.HeaderWriterFilter@7c2a80f4, org.springframework.security.web.authentication.logout.LogoutFilter@12f450da, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@59f9a415, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@eb482d7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7051e96, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1e99a3fd, org.springframework.security.web.session.SessionManagementFilter@68a561bd, org.springframework.security.web.access.ExceptionTranslationFilter@23834b9b, org.springframework.security.web.access.intercept.AuthorizationFilter@71465ecc]
+2023-04-22 14:43:10 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-04-22 14:43:10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-22 14:43:10 [restartedMain] INFO  mspessoas.MsPessoasApplication - Started MsPessoasApplication in 7.105 seconds (process running for 7.962)
