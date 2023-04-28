@@ -1,0 +1,28 @@
+#import "./product.graphqls"
+
+extend type Query{
+	stockById(id: Int):Stock
+	stocks:[Stock]
+}
+
+type Stock {
+	id:ID
+	product:Product
+	quantity:Int
+}
+
+input ProductImput{
+	id:ID
+	code: Int
+	name: String
+}
+
+extend type Mutation{
+
+	saveStock(product:ProductImput, quantity:Int):Stock
+	updateStock(id:Int, product:ProductImput, quantity:Int):Product
+	deleteStock(id:Int):Boolean
+
+}
+
+

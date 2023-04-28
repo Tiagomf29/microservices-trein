@@ -1,0 +1,16 @@
+extend type Query {
+	productById(id:Int): Product
+    products: [Product]
+}
+
+extend type Mutation{
+	saveProduct(code:Int, name:String):Product
+	updateProduct(id:Int, code:Int, name:String):Product
+	deleteProduct(id:Int):Boolean
+}
+
+type Product {
+	id:ID
+	code: Int
+	name: String
+}
