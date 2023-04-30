@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetSalesDetailByIdResponse xmlns="http://mssale.com"
+						   xsi:schemaLocation="http://mssale.com Customer-information.xsd"
+					       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<SalesDetail>
+		<id>123</id>
+		<dataHora>2021-04-29T00:00:00</dataHora>
+		<productId>1</productId>
+		<productName>Bola</productName>
+		<personId>1</personId>
+		<personName>Tiago</personName>
+		<quantity>10</quantity>
+	</SalesDetail>
+</GetSalesDetailByIdResponse>

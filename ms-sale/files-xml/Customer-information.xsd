@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mssale.com" xmlns:tns="http://mssale.com" elementFormDefault="qualified">
+
+	<xs:element name="GetSalesDetailByIdRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:integer"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="GetSalesDetailByIdResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SalesDetail" type="tns:SalesDetail"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>	
+	
+	<!--  -->
+	
+	<xs:element name="GetAllSalesRequest">
+		<xs:complexType>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:element name="GetAllSalesResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="SalesDetail" type="tns:SalesDetail" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<!--  -->	
+	
+	<xs:element name="InsertSalesRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="dataHora" type="xs:dateTime"/>
+				<xs:element name="productId" type="xs:integer"/>
+				<xs:element name="personId" type="xs:integer"/>
+				<xs:element name="quantity" type="xs:integer"/>			
+			</xs:sequence>
+		</xs:complexType>		
+	</xs:element>
+	
+	<xs:element name="InsertSalesResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="defaultMessage"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>	
+	
+	<!--  -->	
+	
+	<xs:complexType name="SalesDetail">
+		<xs:sequence>
+			<xs:element name="id" type="xs:integer"/>
+			<xs:element name="dataHora" type="xs:dateTime"/>
+			<xs:element name="productId" type="xs:integer"/>
+			<xs:element name="productName" type="xs:string"/>
+			<xs:element name="personId" type="xs:integer"/>
+			<xs:element name="personName" type="xs:string"/>
+			<xs:element name="quantity" type="xs:integer"/>			
+		</xs:sequence>
+	</xs:complexType>	
+
+</xs:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.3.0 
+Consulte <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+Gerado em: 2023.04.28 às 10:50:06 PM BRT 
+
+  -->
+      
+    <bindings xmlns:tns="http://mssale.com" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="com.mssale"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:GetCustomerDetailRequest">
+                  
+            <class ref="com.mssale.GetCustomerDetailRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:GetCustomerDetailResponse">
+                  
+            <class ref="com.mssale.GetCustomerDetailResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:CustomerDetail">
+                  
+            <class ref="com.mssale.CustomerDetail"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:GetAllCustomerResponse">
+                  
+            <class ref="com.mssale.GetAllCustomerResponse"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>
