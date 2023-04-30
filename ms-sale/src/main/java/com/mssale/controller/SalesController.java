@@ -1,12 +1,16 @@
 package com.mssale.controller;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -23,32 +27,45 @@ import com.mssale.InsertSalesResponse;
 import com.mssale.SalesDetail;
 import com.mssale.UpdateSalesRequest;
 import com.mssale.UpdateSalesResponse;
+import com.mssale.model.Sales;
+import com.mssale.service.SalesServices;
 
 @Endpoint
 public class SalesController {
+	
+	@Autowired
+	private SalesServices salesServices;
 	
 	@PayloadRoot(namespace = "http://mssale.com", localPart = "GetSalesDetailByIdRequest")
 	@ResponsePayload
 	public GetSalesDetailByIdResponse process(@RequestPayload GetSalesDetailByIdRequest req) throws DatatypeConfigurationException {
 		GetSalesDetailByIdResponse gcr = new GetSalesDetailByIdResponse();
+		
+		Sales sale = salesServices.listSaleById(req.getId().intValue());
+		
 		SalesDetail customedetail = new SalesDetail();
-		customedetail.setId(BigInteger.valueOf(123));
+		customedetail.setId(BigInteger.valueOf(sale.getId()));
 		
 		// Obtém uma instância do DatatypeFactory
         DatatypeFactory datatypeFactory = DatatypeFactory.newInstance();
 
         // Cria um objeto GregorianCalendar com a data e hora desejadas
-        GregorianCalendar calendar = new GregorianCalendar(2023, 3, 29, 14, 30, 0); // 29/04/2023 14:30:00
+        GregorianCalendar calendar = new GregorianCalendar(sale.getDataHora().getYear(),
+														   sale.getDataHora().getMonthValue()-1,
+													       sale.getDataHora().getDayOfMonth(), 
+													       sale.getDataHora().getHour(),
+													       sale.getDataHora().getMinute(), 
+													       sale.getDataHora().getMinute());
 
         // Cria um objeto XMLGregorianCalendar e define seu valor para o valor do objeto GregorianCalendar
         XMLGregorianCalendar xmlGregorianCalendar = datatypeFactory.newXMLGregorianCalendar(calendar);
 
 		customedetail.setDataHora(xmlGregorianCalendar);
-		customedetail.setPersonId(BigInteger.valueOf(1));
-		customedetail.setPersonName("Tiago");
-		customedetail.setProductId(BigInteger.valueOf(1));
-		customedetail.setProductName("bola");
-		customedetail.setQuantity(BigInteger.valueOf(5));
+		customedetail.setPersonId(BigInteger.valueOf(sale.getPersonId()));
+		//customedetail.setPersonName("Tiago");
+		customedetail.setProductId(BigInteger.valueOf(sale.getProductId()));
+		//customedetail.setProductName("bola");
+		customedetail.setQuantity(BigInteger.valueOf(sale.getQuantity()));
 		gcr.setSalesDetail(customedetail);
 		return gcr;
 	}
@@ -58,49 +75,39 @@ public class SalesController {
 	public GetAllSalesResponse process2(@RequestPayload GetAllSalesRequest req) throws DatatypeConfigurationException {
 		
 		GetAllSalesResponse gcr = new GetAllSalesResponse();
-		SalesDetail customedetail = new SalesDetail();
-		customedetail.setId(BigInteger.valueOf(123));
 		
-		// Obtém uma instância do DatatypeFactory
-        DatatypeFactory datatypeFactory = DatatypeFactory.newInstance();
+		List<Sales> listSales = new ArrayList<>();
+		listSales = salesServices.listSales();
+		for(Sales sale : listSales) {
+			
+			SalesDetail customedetail = new SalesDetail();
+			customedetail.setId(BigInteger.valueOf(sale.getId()));
+		
+			// Obtém uma instância do DatatypeFactory
+	        DatatypeFactory datatypeFactory = DatatypeFactory.newInstance();
 
-        // Cria um objeto GregorianCalendar com a data e hora desejadas
-        GregorianCalendar calendar = new GregorianCalendar(2023, 3, 29, 14, 30, 0); // 29/04/2023 14:30:00
+	        // Cria um objeto GregorianCalendar com a data e hora desejadas
+	        GregorianCalendar calendar = new GregorianCalendar(sale.getDataHora().getYear(),
+	        												   sale.getDataHora().getMonthValue()-1,
+	        											       sale.getDataHora().getDayOfMonth(), 
+	        											       sale.getDataHora().getHour(),
+	        											       sale.getDataHora().getMinute(), 
+	        											       sale.getDataHora().getMinute());
 
-        // Cria um objeto XMLGregorianCalendar e define seu valor para o valor do objeto GregorianCalendar
-        XMLGregorianCalendar xmlGregorianCalendar = datatypeFactory.newXMLGregorianCalendar(calendar);
+	        // Cria um objeto XMLGregorianCalendar e define seu valor para o valor do objeto GregorianCalendar
+	        XMLGregorianCalendar xmlGregorianCalendar = datatypeFactory.newXMLGregorianCalendar(calendar);
 
-		customedetail.setDataHora(xmlGregorianCalendar);
-		customedetail.setPersonId(BigInteger.valueOf(1));
-		customedetail.setPersonName("Tiago");
-		customedetail.setProductId(BigInteger.valueOf(1));
-		customedetail.setProductName("bola");
-		customedetail.setQuantity(BigInteger.valueOf(5));
-		
-		gcr.getSalesDetail().add(customedetail);
-		
-		
-		SalesDetail customedetail2 = new SalesDetail();
-		customedetail.setId(BigInteger.valueOf(13));
-		
-		// Obtém uma instância do DatatypeFactory
-        DatatypeFactory datatypeFactory2 = DatatypeFactory.newInstance();
-
-        // Cria um objeto GregorianCalendar com a data e hora desejadas
-        GregorianCalendar calendar2 = new GregorianCalendar(2023, 3, 29, 14, 30, 0); // 29/04/2023 14:30:00
-
-        // Cria um objeto XMLGregorianCalendar e define seu valor para o valor do objeto GregorianCalendar
-        XMLGregorianCalendar xmlGregorianCalendar2 = datatypeFactory2.newXMLGregorianCalendar(calendar2);
-
-		customedetail2.setDataHora(xmlGregorianCalendar2);
-		customedetail2.setPersonId(BigInteger.valueOf(1));
-		customedetail2.setPersonName("Marcelos");
-		customedetail2.setProductId(BigInteger.valueOf(1));
-		customedetail2.setProductName("Lapis");
-		customedetail2.setQuantity(BigInteger.valueOf(2));
-		
-		gcr.getSalesDetail().add(customedetail2);
-		
+	        customedetail.setDataHora(xmlGregorianCalendar);
+			customedetail.setPersonId(BigInteger.valueOf(sale.getId()));
+			//customedetail.setPersonName("Tiago");
+			customedetail.setProductId(BigInteger.valueOf(sale.getProductId()));
+			customedetail.setPersonId(BigInteger.valueOf(sale.getPersonId()));
+			//customedetail.setProductName("bola");
+			customedetail.setQuantity(BigInteger.valueOf(sale.getQuantity()));
+			
+			gcr.getSalesDetail().add(customedetail);
+		}
+				
 		return gcr;
 	}
 	
@@ -108,6 +115,12 @@ public class SalesController {
 	@ResponsePayload
 	public InsertSalesResponse process2(@RequestPayload InsertSalesRequest req) throws DatatypeConfigurationException {
 		InsertSalesResponse isr = new InsertSalesResponse();
+		Sales s = new Sales();
+		s.setDataHora(LocalDateTime.parse(req.getDataHora().toString()));
+		s.setPersonId(req.getPersonId().intValue());
+		s.setProductId(req.getProductId().intValue());
+		s.setQuantity(req.getQuantity().intValue());
+		salesServices.insertSale(s);
 		isr.setDefaultMessage("Registro gravado com sucesso!");
 		return isr;
 	}
@@ -116,6 +129,14 @@ public class SalesController {
 	@ResponsePayload
 	public UpdateSalesResponse process2(@RequestPayload UpdateSalesRequest req) throws DatatypeConfigurationException {
 		UpdateSalesResponse isr = new UpdateSalesResponse();
+		
+		Sales s = new Sales();
+		s.setId(req.getSalesDetail().getId().intValue());
+		s.setDataHora(LocalDateTime.parse(req.getSalesDetail().getDataHora().toString()));
+		s.setPersonId(req.getSalesDetail().getPersonId().intValue());
+		s.setProductId(req.getSalesDetail().getProductId().intValue());
+		s.setQuantity(req.getSalesDetail().getQuantity().intValue());
+		salesServices.updateSale(s);
 		isr.setDefaultMessage("Registro atualizado com sucesso!");
 		return isr;
 	}
@@ -124,6 +145,7 @@ public class SalesController {
 	@ResponsePayload
 	public DeleteSalesDetailByIdResponse process2(@RequestPayload DeleteSalesDetailByIdRequest req) throws DatatypeConfigurationException {
 		DeleteSalesDetailByIdResponse isr = new DeleteSalesDetailByIdResponse();
+		salesServices.deleteSale(req.getId().intValue());
 		isr.setDefaultMessage("Registro excluido com sucesso!");
 		return isr;
 	}
