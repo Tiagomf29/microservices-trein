@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_package = "br.com.mspurchase";
+option java_multiple_files = true;
+
+package br.com.msprurchase;
+
+service HelloService{
+  rpc Hello(HelloReq) returns (HelloResp);
+}
+
+message HelloReq{
+  string message = 1;
+}
+
+message HelloResp{
+  string message = 1;
+}

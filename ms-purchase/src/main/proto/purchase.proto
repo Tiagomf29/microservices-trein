@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option java_package = "br.com.mspurchase";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+package br.com.msprurchase;
+
+service PurchaseService{
+  rpc CreatePurchase (PurchaseReq) returns (PurchaseResp);
+  rpc ListPurchaseFindById (RequestById) returns (PurchaseResp);
+  rpc UpdatePurchase (PurchaseReqUpdate) returns (PurchaseResp);
+  rpc DeletePurchase (RequestById) returns (EmptyPurchase);
+  rpc FindAllPurchase(EmptyPurchase) returns (PurchaseList);
+}
+
+message PurchaseList{
+  repeated PurchaseResp purchases = 1;
+}
+
+message EmptyPurchase{}
+message RequestById{
+  int32 id = 1;
+}
+
+message PurchaseReqUpdate{
+  int32 id = 1;
+  string dateTime = 2;
+  int32 productId = 3;
+  int32 personId = 4;
+  double valorUnitario = 5;
+  int32 quantity = 6;
+}
+
+message PurchaseReq{
+  string dateTime = 1;
+  int32 productId = 2;
+  int32 personId = 3;
+  double valorUnitario = 4;
+  int32 quantity = 5;
+}
+
+message PurchaseResp{
+  int64  id = 1;
+  string dateTime = 2;
+  int32 productId = 3;
+  int32 personId = 4;
+  double valorUnitario = 5;
+  int32 quantity = 6;
+}
