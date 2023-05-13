@@ -39,5 +39,5 @@ public class Person {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_nationality")
-	private Nationality notionality;
+	private Nationality nationality;
 }
