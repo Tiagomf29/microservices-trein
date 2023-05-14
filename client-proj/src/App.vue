@@ -11,11 +11,9 @@ import PaginaPrincipal from './components/pagina-principal.vue'
 
 
 export default {
-
+  
   components: {
     PaginaPrincipal
-  
-   
    
   },
 

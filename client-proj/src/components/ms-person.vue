@@ -42,7 +42,7 @@
                         selection="multiple"
                         v-model:selected="selected"
                         style="width: 1015px;left: -30px;"
-                        :rows-per-page-options="[2, 4, 0]"
+                        :rows-per-page-options="[2, 4, 6]"
                         :visible-columns="myColums"
                       
                     />
@@ -54,6 +54,7 @@
                     <q-btn color="white" text-color="black" label="Excluir" icon="delete" :disable="selected.length == 0" @click="deletePerson(true)"/>&nbsp;&nbsp;&nbsp;
                     <q-btn color="white" text-color="black" label="Alterar" icon="edit" :disable="selected.length > 1 || selected.length == 0" @blur="alterarPerson=false" @click="alterar()"/>
                 </div>
+                <strong>Rest sem Hoteoas</strong> 
             </q-card-section>
         </div>
 
@@ -87,7 +88,6 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
-
     <ms-person-alter v-if="alterarPerson" :nomePerson="objetoPerson" v-on:close-form="getList()"/>
 
     </div>

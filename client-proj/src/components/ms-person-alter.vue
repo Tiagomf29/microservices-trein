@@ -1,5 +1,4 @@
 <template>
-{{ nomePerson}}
     <div class="q-pa-md row items-start q-gutter-md">
       <q-dialog v-model="exibir" >  
         <q-card class="my-card">
@@ -69,7 +68,7 @@ export default {
           nomePai: this.nomePerson.nomePai,
           nacionalid: this.nomePerson.nationality,
           dense: ref(true),
-          options: [{ id:1,nome:'Brasileiro'},{ id:2,nome:'Argentino'}],
+          options: [{ id:1,nome:'Esportivo'},{ id:2,nome:'Escritório'}],
           exibir: ref(false),
           mensagemErro:"",
           alert: ref(false)

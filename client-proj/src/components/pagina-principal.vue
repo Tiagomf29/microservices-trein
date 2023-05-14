@@ -31,7 +31,7 @@
           </q-tab-panel>
 
           <q-tab-panel name="Produtos">
-            
+            <ms-product />            
           </q-tab-panel>
 
           <q-tab-panel name="Compras">
@@ -56,12 +56,13 @@
   <script>
   import { ref } from 'vue'
 import msPerson from './ms-person.vue'
+import MsProduct from './ms-product.vue'
   
   export default {
-  components: { msPerson },
-    setup () {
+  components: { msPerson, MsProduct },
+    setup (){
     return {
-      splitterModel: ref(30),
+      splitterModel: ref(-200),
       selected: ref('Food'),
 
       simple: [
