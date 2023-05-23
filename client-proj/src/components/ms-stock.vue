@@ -11,100 +11,82 @@
     >
       <template v-slot:body="props">
         <q-tr :props="props" @click="onRowClick(props.row)">
-          <q-td key="id" :props="props">
-            {{ props.row.id }}
-          </q-td>
+          <q-td key="id" :props="props">{{ props.row.id }}</q-td>
           <q-td key="name" :props="props">
-            <q-badge color="green">
-              {{ props.row.product.name }}
-            </q-badge>
+            <q-badge color="green">{{ props.row.product.name }}</q-badge>
           </q-td>
           <q-td key="quantity" :props="props">
-            <q-badge color="purple">
-              {{ props.row.quantity }}
-            </q-badge>
+            <q-badge color="purple">{{ props.row.quantity }}</q-badge>
           </q-td>
         </q-tr>
-        
       </template>
     </q-table>
   </div>
-  <q-btn color="white" text-color="black" label="Atualizar" icon="edit" @click="getList()"/>
+  <q-input v-model="text" label="Pequisa por nome do produto" stack-label  />
+
+  <q-btn color="white" text-color="black" label="Pesquisar" icon="search" @click="getList" />
 </template>
 
 <script>
-import { defineComponent } from 'vue';
-import { useQuery, provideApolloClient } from '@vue/apollo-composable';
-import { ApolloClient, InMemoryCache } from '@apollo/client/core';
-import { gql } from 'graphql-tag';
-
-const apolloClient = new ApolloClient({
-  uri: 'http://localhost:8083/graphql', 
-  cache: new InMemoryCache(),
-});
+import { defineComponent, ref } from 'vue';
+import axios from 'axios';
 
 const columns = [
   {
     name: 'id',
     required: true,
-    label: 'Id',
+    label: 'Código',
     align: 'left',
     field: 'id',
-    format: val => `${val}`,
-    sortable: true
+    format: (val) => `${val}`,
+    sortable: true,
   },
   { name: 'name', align: 'left', label: 'Produto', field: 'name', sortable: true },
-  { name: 'quantity', label: 'Quantidade', field: 'quantity', sortable: true }
+  { name: 'quantity', label: 'Quantidade', field: 'quantity', sortable: true },
 ];
 
 export default defineComponent({
-  data:function() {
-    
+  data() {
     return {
       columns,
-      rows:[{
-        id:1,
-        quantity:10,
-        product:{
-          name:"bola"
-        }
-      }]
+      text:''
     };
   },
-  methods:{
-    getList(){
-      provideApolloClient(apolloClient);
+  setup() {
+    const rows = ref([]);
 
-      const { result } = useQuery(gql`
-        query listStock {
-          stocks {
-            id
-            product {
-              id
-              name
+    const getList = async () => {
+      try {
+        const response = await axios.post('http://localhost:8083/graphql', {
+          query: `
+            query listStock {
+              stocks {
+                id
+                product {
+                  id
+                  name
+                }
+                quantity
+              }
             }
-            quantity
-          }
-        }
-      `);
+          `,
+        });
 
-
-      this.rows = []
-
-      for (let index = 0; index < result.value.stocks.length; index++) {
-        
-        this.rows.push(result.value.stocks [index])
-        
+        rows.value = response.data.data.stocks;
+  
+      } catch (error) {
+        console.error(error);
       }
+    };
 
-      console.log(this.rows)  
-       
-
-
-    },
-    teste(){
-      console.log("Teste")
-    }
+    return {
+      getList,
+      rows,
+      onRowClick: (row) => alert(`${row.product.name} clicked`),
+    };
+  },
+  mounted(){
+    this.getList()
   }
 });
 </script>
