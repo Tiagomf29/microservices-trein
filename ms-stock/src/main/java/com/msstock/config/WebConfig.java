@@ -1,4 +1,4 @@
-package com.msproduct.config;
+package com.msstock.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +26,7 @@ public class WebConfig implements WebMvcConfigurer{
 	        config.addAllowedMethod(HttpMethod.PUT);
 	        config.addAllowedMethod(HttpMethod.DELETE);
 	        config.addAllowedMethod(HttpMethod.PATCH);
+	        config.addAllowedMethod(HttpMethod.POST);
 	        source.registerCorsConfiguration("/**", config);
 	        return new CorsFilter(source);
 	    }

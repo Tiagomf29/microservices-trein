@@ -1,12 +1,12 @@
-
 <template>
+    {{ selected[0] }}
     <div class="q-pa-md row items-start q-gutter-md">
       <q-card class="my-card">
         <q-card-section>
             <div class="row">
-                <div><q-input outlined v-model="text" :dense="dense" placeholder="Nome" hint="Nome completo do cliente" class="nomeProduto"/></div>
+                <div><q-input outlined v-model="text" :dense="dense" placeholder="Nome" hint="Nome do produto" class="nomeProduto"/></div>
                 <div class="q-gutter-md">
-                    <q-select outlined v-model="tipoProduto" option-label="nome" option-value="id" :dense="dense" :options="options" label="Tipo" hint="Tipo do produto" style="width: 189px"/>
+                    <q-select outlined v-model="tipoProduto" option-label="name" option-value="id" :dense="dense" :options="options" label="Tipo" hint="Tipo do produto" style="width: 189px"/>
                 </div>
             </div>
         </q-card-section>
@@ -118,8 +118,8 @@ export default {
         nomePai: ref(''),
         tipoProduto: ref(''),
         dense: ref(true),
-        options: [{ id:1,nome:'Esportivo'},{ id:2,nome:'Escritório'}],
-        myColums :["tipo","nome"],
+        options: [],
+        myColums :["tipo","nome","productType"],
         excluirOk: ref(false),
         mensagemErro: ref(''),
         alert: ref(false),
@@ -139,27 +139,41 @@ export default {
   methods: {
     
     async getList() {
-    this.rows = [];
-    const response = await axios.get("http://localhost:8082/products",{
-        params:{
-            sort:"id,desc"
-        }
-    });
-    const productPromises = response.data._embedded.products.map(async (product) => {
-        const urlProdut = product._links.productType.href;
-        const response2 = await axios.get(urlProdut);
-        const productWithType = {
-        id: product.id,    
-        nome: product.name,
-        tipo: response2.data.name,
-        };
-        return productWithType;
-    });
-    const products = await Promise.all(productPromises);
-    this.rows = products;
-    console.log(this.rows);
+        this.rows = [];
+        const response = await axios.get("http://localhost:8082/products",{
+            params:{
+                sort:"id,desc"
+            }
+        });
+        const productPromises = response.data._embedded.products.map(async (product) => {
+            const urlProdut = product._links.productType.href.replace("{?projection}", "");
+            const response2 = await axios.get(urlProdut);
+            const productWithType = {
+            id: product.id,    
+            nome: product.name,
+            tipo: response2.data.name,
+            productType:{
+                tipo: response2.data.name,
+                idTipo: response2.data.id
+            }
+            };
+            return productWithType;
+        });
+        const products = await Promise.all(productPromises);
+        this.rows = products;
     },
+    getTipoProduct(){
 
+        axios.get('http://localhost:8082/productTypes')
+        .then(response =>{                
+            this.options = response.data._embedded.productTypes
+            
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+
+    },
     postProduct(){
 
         axios.post('http://localhost:8082/products', {
@@ -171,7 +185,6 @@ export default {
             this.getList();
         })
         .catch(error => {
-            console.log(error);
             this.mensagemErro = error.response.data.detail;
             this.alert = true;
         });       
@@ -218,6 +231,7 @@ export default {
   mounted(){
 
     this.getList();
+    this.getTipoProduct();
 
   }
 }

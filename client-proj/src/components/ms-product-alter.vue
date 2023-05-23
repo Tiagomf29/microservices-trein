@@ -7,7 +7,7 @@
                     
                     <div><q-input outlined v-model="text" :dense="dense" placeholder="Nome" hint="Nome completo do cliente" class="nomeCliente"/></div> <br/>
                     <div class="q-gutter-md">
-                        <q-select outlined v-model="tipoProduto" option-label="nome" option-value="id" :dense="dense" :options="options" label="Tipo de produto" hint="Nacionalidade" style="width: 179px"/>
+                        <q-select outlined v-model="tipoProduto" option-label="name" option-value="id" :dense="dense" :options="options" label="Tipo de produto" hint="Nacionalidade" style="width: 179px"/>
                     </div>
                 </div>
             </q-card-section>
@@ -50,12 +50,12 @@ export default {
       return{  
           text: this.pTipoProduto.nome,
           id : this.pTipoProduto.id,
-          tipoProduto: this.pTipoProduto.tipo,
+          tipoProduto: this.pTipoProduto,
           dense: ref(true),
-          options: [{ id:1,nome:'Brasileiro'},{ id:2,nome:'Argentino'}],
+          options: [],
           exibir: ref(false),
           mensagemErro:"",
-          alert: ref(false)
+          alert: ref(false),
       }
     },
     props:{
@@ -63,13 +63,26 @@ export default {
     },
     mounted(){
         this.exibir = true
+        this.getTipoProduct()
     },
+    emits: ['close-form'],
     methods:{
+        getTipoProduct(){
+
+            axios.get('http://localhost:8082/productTypes')
+            .then(response =>{                
+                this.options = response.data._embedded.productTypes
+            })
+            .catch(error =>{
+                console.log(error)
+            })
+
+        },
         putProduct(){
 
             this.alert = false;
 
-            axios.put('http://localhost:8082/products/'+this.id, {
+            axios.patch('http://localhost:8082/products/'+this.id, {
                 name: this.text,
                 productType:"http://localhost:8082/productTypes/"+this.tipoProduto.id
             })
@@ -79,7 +92,7 @@ export default {
             })
             .catch(error => {
                 console.log(error);
-                this.mensagemErro = error.response.data.message;
+                this.mensagemErro = error.message;
                 this.alert = true;
             });       
         },

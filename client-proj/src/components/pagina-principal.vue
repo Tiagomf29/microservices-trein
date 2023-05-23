@@ -43,7 +43,7 @@
           </q-tab-panel>
         
           <q-tab-panel name="Estoque">
-             
+             <ms-stock />
           </q-tab-panel>
 
         </q-tab-panels>
@@ -57,9 +57,10 @@
   import { ref } from 'vue'
 import msPerson from './ms-person.vue'
 import MsProduct from './ms-product.vue'
+import MsStock from './ms-stock.vue'
   
   export default {
-  components: { msPerson, MsProduct },
+  components: { msPerson, MsProduct, MsStock },
     setup (){
     return {
       splitterModel: ref(-200),

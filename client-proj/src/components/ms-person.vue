@@ -54,12 +54,11 @@
                     <q-btn color="white" text-color="black" label="Excluir" icon="delete" :disable="selected.length == 0" @click="deletePerson(true)"/>&nbsp;&nbsp;&nbsp;
                     <q-btn color="white" text-color="black" label="Alterar" icon="edit" :disable="selected.length > 1 || selected.length == 0" @blur="alterarPerson=false" @click="alterar()"/>
                 </div>
-                <strong>Rest sem Hoteoas</strong> 
             </q-card-section>
         </div>
 
       </q-card>
-
+      <strong>Rest sem Hoteoas</strong> 
       <q-dialog v-model="confirm" persistent>
       <q-card>
         <q-card-section class="row items-center">          
