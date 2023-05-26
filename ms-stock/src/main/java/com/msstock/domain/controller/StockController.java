@@ -1,5 +1,6 @@
 package com.msstock.domain.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,6 +62,19 @@ public class StockController {
 	@QueryMapping
 	public List<Stock> stocks(){
 		return stocRepository.findAll();
+	}
+	
+	@QueryMapping
+	public List<Stock> stockByProductName(@Argument String name){
+		
+		List<Stock> list;;
+		
+		if(name.equals("")) {
+			list = stocRepository.findAll();
+		}else
+			list = stocRepository.findByProductName("%"+name+"%");
+		
+		return list;
 	}
 	
 	@QueryMapping

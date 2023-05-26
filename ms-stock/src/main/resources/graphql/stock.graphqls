@@ -3,6 +3,7 @@
 extend type Query{
 	stockById(id: Int):Stock
 	stocks:[Stock]
+	stockByProductName(name: String):[Stock]
 }
 
 type Stock {
